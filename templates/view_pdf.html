@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #pdf-container {
+        width: 80%;
+        max-width: 800px;
+        height: 700px;
+        }
+
+        img {
+        width: 80%; 
+        height: 750px;
+        transform: scale(0.8); 
+        transform-origin: top center; 
+    
+        outline: 2px solid black; 
+        outline-offset: 5px;
+        border-radius: 4px; 
+        }
+        .nav-buttons {
+            margin-top: -70px;
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf-container">
+        <img src="data:image/png;base64,{{ img_data }}" alt="PDF Page">
+        <div class="nav-buttons">
+            <a href="{{ url_for('prev_page') }}">Previous</a>
+            <span> | </span>
+            <a href="{{ url_for('next_page') }}">Next</a>
+        </div>
+        <p>Page {{ page_num + 1 }} of {{ page_count }}</p>
+    </div>
+</body>
+</html>
+ 
